@@ -1,0 +1,271 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f8fafc; /* Light modern background */
+    overflow: hidden;
+}
+
+#tree-container {
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Floating Title Header */
+.app-header {
+    position: fixed;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.85);
+    padding: 12px 32px;
+    border-radius: 30px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    pointer-events: none; /* Allows panning even if dragging over the title */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.app-header h1 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: #0f172a;
+    letter-spacing: 0.5px;
+}
+
+.header-controls {
+    display: flex;
+    gap: 12px;
+    pointer-events: auto; /* Allows clicking the buttons */
+}
+
+.btn-control {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+.btn-control:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+    transform: scale(1.05);
+}
+
+/* Container holding single or multiple profiles */
+.node-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.profile-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    padding: 8px;
+    width: 180px;
+    height: 75px;
+    box-sizing: border-box;
+    border-left: 6px solid #ccc; /* Default generated border */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* Spouse Cascade Toggles */
+.spouse-toggle {
+    cursor: pointer;
+    background: #f1f5f9;
+    border-radius: 20px;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: bold;
+    color: #64748b;
+    border: 1px solid #cbd5e1;
+    transition: all 0.2s;
+    user-select: none;
+}
+
+.spouse-toggle:hover {
+    background: #e2e8f0;
+}
+
+.btn-show {
+    position: absolute;
+    right: -14px;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 2px 4px rgb(0 0 0/0.1);
+    z-index: 10;
+}
+
+.btn-show:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.btn-hide {
+    background: white; /* Matches ring connector vibe but interactive */
+}
+
+.btn-hide:hover {
+    transform: scale(1.1);
+}
+
+.connector-icon {
+    font-size: 16px;
+    margin: 0 4px;
+    display: flex;
+    align-items: center;
+}
+
+.profile-card:hover {
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    transform: translateY(-2px);
+}
+
+/* Differentiation for Spouse/Menantu */
+.spouse-card {
+    border-left-width: 4px !important;
+    border-left-style: dashed !important;
+    border-left-color: #cbd5e1 !important; /* Neutral gray edge for in-laws */
+    background-color: #fafafa !important;
+}
+
+.status-badge {
+    background-color: #f1f5f9;
+    color: #64748b;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 9px;
+    margin-left: 4px;
+    font-weight: 500;
+}
+
+/* Hover over toggle button */
+.toggle-btn circle {
+    transition: stroke 0.2s;
+}
+
+.toggle-btn:hover circle {
+    stroke: #94a3b8 !important;
+}
+
+.avatar-container {
+    flex-shrink: 0;
+    margin-right: 12px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #e2e8f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #64748b;
+}
+
+.info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    width: calc(100% - 52px); /* ensure text truncates cleanly */
+}
+
+.name {
+    font-weight: 700;
+    font-size: 12.5px;
+    color: #0f172a;
+    margin: 0 0 2px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.nickname {
+    font-size: 10px;
+    color: #64748b;
+    margin: 0 0 4px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.location {
+    font-size: 9px;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.location-icon {
+    font-size: 12px;
+    margin-right: 4px;
+}
+
+/* Generation Colors - Soft tones (Border and Background for direct descendants) */
+.gen-1 { border-left-color: #f59e0b; background-color: #fffbeb; } /* Soft Amber */
+.gen-2 { border-left-color: #3b82f6; background-color: #eff6ff; } /* Soft Blue */
+.gen-3 { border-left-color: #10b981; background-color: #ecfdf5; } /* Soft Emerald */
+.gen-4 { border-left-color: #8b5cf6; background-color: #f5f3ff; } /* Soft Violet */
+.gen-5 { border-left-color: #ec4899; background-color: #fdf2f8; } /* Soft Pink */
+.gen-6 { border-left-color: #14b8a6; background-color: #ccfbf1; } /* Soft Teal */
+.gen-7 { border-left-color: #f97316; background-color: #ffedd5; } /* Soft Orange */
+.gen-8 { border-left-color: #6366f1; background-color: #e0e7ff; } /* Soft Indigo */
+.gen-9 { border-left-color: #f43f5e; background-color: #ffe4e6; } /* Soft Rose */
+.gen-10 { border-left-color: #84cc16; background-color: #ecfccb; } /* Soft Lime */
+
+/* Links */
+.link {
+    fill: none;
+    stroke: #cbd5e1; /* Soft gray for links */
+    stroke-width: 2.5px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    .app-header {
+        width: 90%;
+        max-width: 360px;
+        padding: 10px 0;
+        top: 12px;
+        border-radius: 20px;
+        gap: 8px;
+    }
+
+    .app-header h1 {
+        font-size: 16px;
+    }
+
+    .header-controls {
+        gap: 8px;
+    }
+
+    .btn-control {
+        padding: 6px 12px;
+        font-size: 10px;
+    }
+}

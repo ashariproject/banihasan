@@ -1,0 +1,268 @@
+{
+  "id": "1",
+  "fullName": "Hasan Al-Banjari",
+  "nickname": "Mbah Hasan",
+  "location": "Makkah",
+  "generation": 1,
+  "spouse": {
+    "fullName": "Fatimah Binti Zaid",
+    "nickname": "Fatimah",
+    "location": "Makkah"
+  },
+  "children": [
+    {
+      "id": "2",
+      "fullName": "Ahmad Rifa'i",
+      "nickname": "Ahmad",
+      "location": "Surabaya",
+      "generation": 2,
+      "spouse": {
+        "fullName": "Siti Maryam",
+        "nickname": "Maryam",
+        "location": "Surabaya"
+      },
+      "children": [
+        {
+          "id": "5",
+          "fullName": "Fatimah Az-Zahra",
+          "nickname": "Fatimah",
+          "location": "Jakarta",
+          "generation": 3,
+          "children": [
+            {
+              "id": "11",
+              "fullName": "Budi Santoso",
+              "nickname": "Budi",
+              "location": "Bandung",
+              "generation": 4,
+              "spouse": {
+                "fullName": "Ratna Galih",
+                "nickname": "Ratna",
+                "location": "Bandung"
+              },
+              "children": [
+                {
+                  "id": "21",
+                  "fullName": "Reza Rahadian",
+                  "nickname": "Reza",
+                  "location": "Bandung",
+                  "generation": 5
+                },
+                {
+                  "id": "22",
+                  "fullName": "Nisa Sabyan",
+                  "nickname": "Nisa",
+                  "location": "Jakarta",
+                  "generation": 5
+                }
+              ]
+            },
+            {
+              "id": "12",
+              "fullName": "Siti Aminah",
+              "nickname": "Siti",
+              "location": "Jakarta",
+              "generation": 4,
+              "children": [
+                {
+                  "id": "23",
+                  "fullName": "Ayu Ting Ting",
+                  "nickname": "Ayu",
+                  "location": "Depok",
+                  "generation": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "6",
+          "fullName": "Aliando Syarief",
+          "nickname": "Ali",
+          "location": "Yogyakarta",
+          "generation": 3,
+          "children": [
+            {
+              "id": "13",
+              "fullName": "Rizky Billar",
+              "nickname": "Rizky",
+              "location": "Medan",
+              "generation": 4,
+              "children": [
+                {
+                  "id": "24",
+                  "fullName": "Lesti Kejora",
+                  "nickname": "Lesti",
+                  "location": "Jakarta",
+                  "generation": 5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "fullName": "Siti Khadijah",
+      "nickname": "Khadijah",
+      "location": "Semarang",
+      "generation": 2,
+      "spouse": {
+        "fullName": "Abdul Rahman",
+        "nickname": "Abdul",
+        "location": "Semarang"
+      },
+      "children": [
+        {
+          "id": "7",
+          "fullName": "Muhammad Iqbal",
+          "nickname": "Iqbal",
+          "location": "Surabaya",
+          "generation": 3,
+          "children": [
+            {
+              "id": "14",
+              "fullName": "Chelsea Islan",
+              "nickname": "Chelsea",
+              "location": "Bali",
+              "generation": 4,
+              "children": [
+                {
+                  "id": "25",
+                  "fullName": "Gempita Nora",
+                  "nickname": "Gempi",
+                  "location": "Jakarta",
+                  "generation": 5
+                }
+              ]
+            },
+            {
+              "id": "15",
+              "fullName": "Nicholas Saputra",
+              "nickname": "Nico",
+              "location": "Yogyakarta",
+              "generation": 4,
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "8",
+          "fullName": "Zaskia Adya Mecca",
+          "nickname": "Zaskia",
+          "location": "Jakarta",
+          "generation": 3,
+          "children": [
+            {
+              "id": "16",
+              "fullName": "Hanung Bramantyo",
+              "nickname": "Hanung",
+              "location": "Yogyakarta",
+              "generation": 4,
+              "children": [
+                {
+                  "id": "26",
+                  "fullName": "Kala Madali",
+                  "nickname": "Kala",
+                  "location": "Jakarta",
+                  "generation": 5
+                },
+                {
+                  "id": "27",
+                  "fullName": "Kana Sybilla",
+                  "nickname": "Kana",
+                  "location": "Jakarta",
+                  "generation": 5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "fullName": "Abdul Qadir",
+      "nickname": "Abdul",
+      "location": "Malang",
+      "generation": 2,
+      "children": [
+        {
+          "id": "9",
+          "fullName": "Dewi Sandra",
+          "nickname": "Dewi",
+          "location": "Malang",
+          "generation": 3,
+          "children": [
+            {
+              "id": "17",
+              "fullName": "Raisa Andriana",
+              "nickname": "Raisa",
+              "location": "Jakarta",
+              "generation": 4,
+              "children": [
+                {
+                  "id": "28",
+                  "fullName": "Zalina Raine",
+                  "nickname": "Zalina",
+                  "location": "Jakarta",
+                  "generation": 5
+                }
+              ]
+            },
+            {
+              "id": "18",
+              "fullName": "Hamish Daud",
+              "nickname": "Hamish",
+              "location": "Bali",
+              "generation": 4,
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "10",
+          "fullName": "Dian Sastrowardoyo",
+          "nickname": "Dian",
+          "location": "Jakarta",
+          "generation": 3,
+          "children": [
+            {
+              "id": "19",
+              "fullName": "Shailendra Naryama",
+              "nickname": "Shailendra",
+              "location": "Jakarta",
+              "generation": 4,
+              "children": [
+                {
+                  "id": "29",
+                  "fullName": "Bumi Naryama",
+                  "nickname": "Bumi",
+                  "location": "Jakarta",
+                  "generation": 5
+                }
+              ]
+            },
+            {
+              "id": "20",
+              "fullName": "Ishana Ariandra",
+              "nickname": "Ishana",
+              "location": "Jakarta",
+              "generation": 4,
+              "children": [
+                {
+                  "id": "30",
+                  "fullName": "Langit Ariandra",
+                  "nickname": "Langit",
+                  "location": "Jakarta",
+                  "generation": 5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

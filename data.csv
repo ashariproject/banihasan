@@ -1,0 +1,31 @@
+id,parentId,fullName,nickname,location,generation,spouseFullName,spouseNickname,spouseLocation
+1,,Hasan Al-Banjari,Mbah Hasan,Makkah,1,Fatimah Binti Zaid,Fatimah,Makkah
+2,1,Ahmad Rifa'i,Ahmad,Surabaya,2,Siti Maryam,Maryam,Surabaya
+3,1,Siti Khadijah,Khadijah,Semarang,2,Abdul Rahman,Abdul,Semarang
+4,1,Abdul Qadir,Abdul,Malang,2,,,
+5,2,Fatimah Az-Zahra,Fatimah,Jakarta,3,,,
+6,2,Aliando Syarief,Ali,Yogyakarta,3,,,
+7,3,Muhammad Iqbal,Iqbal,Surabaya,3,,,
+8,3,Zaskia Adya Mecca,Zaskia,Jakarta,3,,,
+9,4,Dewi Sandra,Dewi,Malang,3,,,
+10,4,Dian Sastrowardoyo,Dian,Jakarta,3,,,
+11,5,Budi Santoso,Budi,Bandung,4,Ratna Galih,Ratna,Bandung
+12,5,Siti Aminah,Siti,Jakarta,4,,,
+13,6,Rizky Billar,Rizky,Medan,4,,,
+14,7,Chelsea Islan,Chelsea,Bali,4,,,
+15,7,Nicholas Saputra,Nico,Yogyakarta,4,,,
+16,8,Hanung Bramantyo,Hanung,Yogyakarta,4,,,
+17,9,Raisa Andriana,Raisa,Jakarta,4,,,
+18,9,Hamish Daud,Hamish,Bali,4,,,
+19,10,Shailendra Naryama,Shailendra,Jakarta,4,,,
+20,10,Ishana Ariandra,Ishana,Jakarta,4,,,
+21,11,Reza Rahadian,Reza,Bandung,5,,,
+22,11,Nisa Sabyan,Nisa,Jakarta,5,,,
+23,12,Ayu Ting Ting,Ayu,Depok,5,,,
+24,13,Lesti Kejora,Lesti,Jakarta,5,,,
+25,14,Gempita Nora,Gempi,Jakarta,5,,,
+26,16,Kala Madali,Kala,Jakarta,5,,,
+27,16,Kana Sybilla,Kana,Jakarta,5,,,
+28,17,Zalina Raine,Zalina,Jakarta,5,,,
+29,19,Bumi Naryama,Bumi,Jakarta,5,,,
+30,20,Langit Ariandra,Langit,Jakarta,5,,,
