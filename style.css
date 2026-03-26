@@ -343,4 +343,43 @@ select.btn-control {
         padding: 6px 12px;
         font-size: 10px;
     }
+
+    .app-footer {
+        bottom: 16px !important;
+        width: 90%;
+        max-width: 360px;
+        flex-direction: column;
+        gap: 8px !important;
+        text-align: center;
+        padding: 10px 16px !important;
+    }
+
+    .hint-text {
+        font-size: 10px !important;
+    }
+}
+
+/* Footer / Hint Section */
+.app-footer {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--header-bg);
+    padding: 10px 24px;
+    border-radius: 30px;
+    box-shadow: 0 4px 6px -1px var(--card-shadow), 0 2px 4px -2px var(--card-shadow);
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    pointer-events: auto;
+}
+
+.hint-text {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-color);
 }
