@@ -38,6 +38,7 @@ const treeLayout = d3.tree()
     });
 
 let root;
+let clusterRoot;
 let i = 0;
 
 // Load CSV data dynamically from local folder or Google Sheets
@@ -116,13 +117,15 @@ d3.csv(DATA_URL).then((csvData) => {
     }
 
     document.getElementById("btn-expand-all").addEventListener("click", () => {
-        expandAll(root);
-        update(root);
+        const current = clusterRoot || root;
+        expandAll(current);
+        update(current);
     });
 
     document.getElementById("btn-collapse-all").addEventListener("click", () => {
-        collapseAll(root);
-        update(root);
+        const current = clusterRoot || root;
+        collapseAll(current);
+        update(current);
         // Recalculate based on current screen size
         const isMobile = window.innerWidth < 600;
         const initialScale = isMobile ? 0.35 : 0.65;
@@ -133,13 +136,36 @@ d3.csv(DATA_URL).then((csvData) => {
             .call(zoom.transform, d3.zoomIdentity.translate(width / 2, initialY).scale(initialScale));
     });
 
+    // Cluster Select logic
+    document.getElementById("cluster-select").addEventListener("change", (e) => {
+        const val = e.target.value;
+        if (val === "all") {
+            clusterRoot = root;
+        } else {
+            clusterRoot = root.descendants().find(d => d.id === val);
+            if (!clusterRoot) clusterRoot = root;
+        }
+        
+        clusterRoot.x0 = width / 2;
+        clusterRoot.y0 = 60;
+        
+        expandAll(clusterRoot);
+        update(clusterRoot);
+        
+        const isMobile = window.innerWidth < 600;
+        const initialScale = isMobile ? 0.35 : 0.65;
+        const initialY = isMobile ? 110 : 140;
+        svg.transition().duration(500)
+            .call(zoom.transform, d3.zoomIdentity.translate(width / 2, initialY).scale(initialScale));
+    });
+
 }).catch(error => {
     console.error("Error loading CSV data:", error);
 });
 
 function update(source) {
     // Assigns the x and y position for the nodes
-    const treeData = treeLayout(root);
+    const treeData = treeLayout(clusterRoot || root);
 
     // Compute the new tree layout
     const nodes = treeData.descendants();
