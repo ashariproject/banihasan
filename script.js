@@ -40,11 +40,14 @@ const treeLayout = d3.tree()
 let root;
 let i = 0;
 
-// Load CSV data (This can be replaced with a live Google Sheets CSV URL later)
+// Load CSV data dynamically from local folder or Google Sheets
 const DATA_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSeve7fPNHPhqr-5Ve-ydfYfy6unfjzxyaYHjiMg0IySg40WM-ZbCNwvaUDo60Kmy9BnB5cGeyDvDKQ/pub?output=csv";
-// Example: const DATA_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSeve7fPNHPhqr-5Ve-ydfYfy6unfjzxyaYHjiMg0IySg40WM-ZbCNwvaUDo60Kmy9BnB5cGeyDvDKQ/pub?output=csv";
+// Example: const DATA_URL = "data.csv";
 
 d3.csv(DATA_URL).then((csvData) => {
+    // Filter out empty rows which might cause d3.stratify to crash
+    csvData = csvData.filter(d => d.id && d.id.trim() !== "");
+
     // Reconstruct spouse objects from flat data
     csvData.forEach(row => {
         if (row.spouseFullName && row.spouseFullName.trim() !== "") {
