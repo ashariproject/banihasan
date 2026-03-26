@@ -1,9 +1,79 @@
+:root {
+    --bg-color: #f8fafc;
+    --header-bg: rgba(255, 255, 255, 0.85);
+    --text-color: #0f172a;
+    --text-muted: #64748b;
+    --text-light: #94a3b8;
+    --btn-bg: #f8fafc;
+    --btn-border: #cbd5e1;
+    --btn-hover-bg: #e2e8f0;
+    --card-bg: white;
+    --card-shadow: rgb(0 0 0 / 0.1);
+    --spouse-bg: #fafafa;
+    --spouse-toggle: #f1f5f9;
+    --avatar-bg: #e2e8f0;
+    --link-color: #cbd5e1;
+    --toggle-circle: #fff;
+    --toggle-circle-stroke: #cbd5e1;
+    --toggle-hover-stroke: #94a3b8;
+    --select-bg: white;
+    --card-border-default: #ccc;
+    
+    /* Gen colors */
+    --gen1-border: #f59e0b; --gen1-bg: #fffbeb;
+    --gen2-border: #3b82f6; --gen2-bg: #eff6ff;
+    --gen3-border: #10b981; --gen3-bg: #ecfdf5;
+    --gen4-border: #8b5cf6; --gen4-bg: #f5f3ff;
+    --gen5-border: #ec4899; --gen5-bg: #fdf2f8;
+    --gen6-border: #14b8a6; --gen6-bg: #ccfbf1;
+    --gen7-border: #f97316; --gen7-bg: #ffedd5;
+    --gen8-border: #6366f1; --gen8-bg: #e0e7ff;
+    --gen9-border: #f43f5e; --gen9-bg: #ffe4e6;
+    --gen10-border: #84cc16; --gen10-bg: #ecfccb;
+}
+
+body.dark-mode {
+    --bg-color: #0f172a;
+    --header-bg: rgba(30, 41, 59, 0.85);
+    --text-color: #f8fafc;
+    --text-muted: #94a3b8;
+    --text-light: #cbd5e1;
+    --btn-bg: #1e293b;
+    --btn-border: #334155;
+    --btn-hover-bg: #334155;
+    --card-bg: #1e293b;
+    --card-shadow: rgb(0 0 0 / 0.5);
+    --spouse-bg: #0f172a;
+    --spouse-toggle: #334155;
+    --avatar-bg: #334155;
+    --link-color: #334155;
+    --toggle-circle: #1e293b;
+    --toggle-circle-stroke: #475569;
+    --toggle-hover-stroke: #64748b;
+    --select-bg: #1e293b;
+    --card-border-default: #475569;
+
+    /* Gen colors dark mode (using darker tints with same borders) */
+    --gen1-bg: #422006;
+    --gen2-bg: #172554;
+    --gen3-bg: #064e3b;
+    --gen4-bg: #2e1065;
+    --gen5-bg: #500724;
+    --gen6-bg: #134e4a;
+    --gen7-bg: #431407;
+    --gen8-bg: #312e81;
+    --gen9-bg: #4c0519;
+    --gen10-bg: #3f6212;
+}
+
 body {
     margin: 0;
     padding: 0;
     font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background-color: #f8fafc; /* Light modern background */
+    background-color: var(--bg-color);
+    color: var(--text-color);
     overflow: hidden;
+    transition: background-color 0.3s;
 }
 
 #tree-container {
@@ -17,10 +87,10 @@ body {
     top: 24px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(255, 255, 255, 0.85);
+    background: var(--header-bg);
     padding: 12px 32px;
     border-radius: 30px;
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    box-shadow: 0 4px 6px -1px var(--card-shadow), 0 2px 4px -2px var(--card-shadow);
     z-index: 1000;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -35,7 +105,7 @@ body {
     margin: 0;
     font-size: 20px;
     font-weight: 700;
-    color: #0f172a;
+    color: var(--text-color);
     letter-spacing: 0.5px;
 }
 
@@ -46,22 +116,25 @@ body {
 }
 
 .btn-control {
-    background: #f8fafc;
-    border: 1px solid #cbd5e1;
+    background: var(--btn-bg);
+    border: 1px solid var(--btn-border);
     padding: 6px 16px;
     border-radius: 20px;
     font-size: 11px;
     font-weight: 600;
-    color: #475569;
+    color: var(--text-color);
     cursor: pointer;
     transition: all 0.2s;
     font-family: inherit;
 }
 
 .btn-control:hover {
-    background: #e2e8f0;
-    color: #0f172a;
+    background: var(--btn-hover-bg);
     transform: scale(1.05);
+}
+
+select.btn-control {
+    background-color: var(--select-bg) !important;
 }
 
 /* Container holding single or multiple profiles */
@@ -77,33 +150,33 @@ body {
     position: relative;
     display: flex;
     align-items: center;
-    background: white;
+    background: var(--card-bg);
     border-radius: 12px;
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    box-shadow: 0 4px 6px -1px var(--card-shadow), 0 2px 4px -2px var(--card-shadow);
     padding: 8px;
     width: 180px;
     height: 75px;
     box-sizing: border-box;
-    border-left: 6px solid #ccc; /* Default generated border */
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border-left: 6px solid var(--card-border-default);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.3s;
 }
 
 /* Spouse Cascade Toggles */
 .spouse-toggle {
     cursor: pointer;
-    background: #f1f5f9;
+    background: var(--spouse-toggle);
     border-radius: 20px;
     padding: 2px 6px;
     font-size: 10px;
     font-weight: bold;
-    color: #64748b;
-    border: 1px solid #cbd5e1;
+    color: var(--text-muted);
+    border: 1px solid var(--btn-border);
     transition: all 0.2s;
     user-select: none;
 }
 
 .spouse-toggle:hover {
-    background: #e2e8f0;
+    background: var(--btn-hover-bg);
 }
 
 .btn-show {
@@ -111,7 +184,7 @@ body {
     right: -14px;
     top: 50%;
     transform: translateY(-50%);
-    box-shadow: 0 2px 4px rgb(0 0 0/0.1);
+    box-shadow: 0 2px 4px var(--card-shadow);
     z-index: 10;
 }
 
@@ -120,7 +193,7 @@ body {
 }
 
 .btn-hide {
-    background: white; /* Matches ring connector vibe but interactive */
+    background: var(--card-bg); /* Matches ring connector vibe but interactive */
 }
 
 .btn-hide:hover {
@@ -135,7 +208,7 @@ body {
 }
 
 .profile-card:hover {
-    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    box-shadow: 0 10px 15px -3px var(--card-shadow), 0 4px 6px -4px var(--card-shadow);
     transform: translateY(-2px);
 }
 
@@ -143,13 +216,13 @@ body {
 .spouse-card {
     border-left-width: 4px !important;
     border-left-style: dashed !important;
-    border-left-color: #cbd5e1 !important; /* Neutral gray edge for in-laws */
-    background-color: #fafafa !important;
+    border-left-color: var(--btn-border) !important;
+    background-color: var(--spouse-bg) !important;
 }
 
 .status-badge {
-    background-color: #f1f5f9;
-    color: #64748b;
+    background-color: var(--spouse-toggle);
+    color: var(--text-muted);
     padding: 2px 6px;
     border-radius: 4px;
     font-size: 9px;
@@ -163,7 +236,7 @@ body {
 }
 
 .toggle-btn:hover circle {
-    stroke: #94a3b8 !important;
+    stroke: var(--toggle-hover-stroke) !important;
 }
 
 .avatar-container {
@@ -175,13 +248,13 @@ body {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #e2e8f0;
+    background-color: var(--avatar-bg);
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 18px;
     font-weight: bold;
-    color: #64748b;
+    color: var(--text-muted);
 }
 
 .info-container {
@@ -195,7 +268,7 @@ body {
 .name {
     font-weight: 700;
     font-size: 12.5px;
-    color: #0f172a;
+    color: var(--text-color);
     margin: 0 0 2px 0;
     white-space: nowrap;
     overflow: hidden;
@@ -204,7 +277,7 @@ body {
 
 .nickname {
     font-size: 10px;
-    color: #64748b;
+    color: var(--text-muted);
     margin: 0 0 4px 0;
     white-space: nowrap;
     overflow: hidden;
@@ -213,7 +286,7 @@ body {
 
 .location {
     font-size: 9px;
-    color: #94a3b8;
+    color: var(--text-light);
     display: flex;
     align-items: center;
     white-space: nowrap;
@@ -226,22 +299,22 @@ body {
     margin-right: 4px;
 }
 
-/* Generation Colors - Soft tones (Border and Background for direct descendants) */
-.gen-1 { border-left-color: #f59e0b; background-color: #fffbeb; } /* Soft Amber */
-.gen-2 { border-left-color: #3b82f6; background-color: #eff6ff; } /* Soft Blue */
-.gen-3 { border-left-color: #10b981; background-color: #ecfdf5; } /* Soft Emerald */
-.gen-4 { border-left-color: #8b5cf6; background-color: #f5f3ff; } /* Soft Violet */
-.gen-5 { border-left-color: #ec4899; background-color: #fdf2f8; } /* Soft Pink */
-.gen-6 { border-left-color: #14b8a6; background-color: #ccfbf1; } /* Soft Teal */
-.gen-7 { border-left-color: #f97316; background-color: #ffedd5; } /* Soft Orange */
-.gen-8 { border-left-color: #6366f1; background-color: #e0e7ff; } /* Soft Indigo */
-.gen-9 { border-left-color: #f43f5e; background-color: #ffe4e6; } /* Soft Rose */
-.gen-10 { border-left-color: #84cc16; background-color: #ecfccb; } /* Soft Lime */
+/* Generation Colors - Soft tones */
+.gen-1 { border-left-color: var(--gen1-border); background-color: var(--gen1-bg); }
+.gen-2 { border-left-color: var(--gen2-border); background-color: var(--gen2-bg); }
+.gen-3 { border-left-color: var(--gen3-border); background-color: var(--gen3-bg); }
+.gen-4 { border-left-color: var(--gen4-border); background-color: var(--gen4-bg); }
+.gen-5 { border-left-color: var(--gen5-border); background-color: var(--gen5-bg); }
+.gen-6 { border-left-color: var(--gen6-border); background-color: var(--gen6-bg); }
+.gen-7 { border-left-color: var(--gen7-border); background-color: var(--gen7-bg); }
+.gen-8 { border-left-color: var(--gen8-border); background-color: var(--gen8-bg); }
+.gen-9 { border-left-color: var(--gen9-border); background-color: var(--gen9-bg); }
+.gen-10 { border-left-color: var(--gen10-border); background-color: var(--gen10-bg); }
 
 /* Links */
 .link {
     fill: none;
-    stroke: #cbd5e1; /* Soft gray for links */
+    stroke: var(--link-color);
     stroke-width: 2.5px;
 }
 
@@ -262,6 +335,8 @@ body {
 
     .header-controls {
         gap: 8px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .btn-control {

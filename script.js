@@ -12,7 +12,7 @@ const svg = d3.select("#tree-container")
     .append("svg")
     .attr("width", "100%")
     .attr("height", "100%")
-    .style("background-color", "#f8fafc");
+    .style("background-color", "transparent");
 
 const g = svg.append("g");
 
@@ -209,8 +209,8 @@ function update(source) {
 
     toggleGroups.append("circle")
         .attr("r", 12)
-        .style("fill", "#fff")
-        .style("stroke", "#cbd5e1")
+        .style("fill", "var(--toggle-circle)")
+        .style("stroke", "var(--toggle-circle-stroke)")
         .style("stroke-width", "2px");
 
     toggleGroups.append("text")
@@ -218,7 +218,7 @@ function update(source) {
         .attr("text-anchor", "middle")
         .style("font-size", "14px")
         .style("font-weight", "bold")
-        .style("fill", "#64748b")
+        .style("fill", "var(--text-muted)")
         .style("user-select", "none")
         .text(d => d._children ? "+" : "-");
 
@@ -308,7 +308,7 @@ function update(source) {
 
     // Update color on toggle button
     nodeUpdate.select(".toggle-btn circle")
-        .style("fill", d => d._children ? "#f1f5f9" : "#fff");
+        .style("fill", d => d._children ? "var(--spouse-toggle)" : "var(--toggle-circle)");
 
     // Remove any exiting nodes
     const nodeExit = node.exit().transition()
@@ -366,4 +366,25 @@ function diagonal(s, d) {
             C ${s.x} ${(startY + endY) / 2},
               ${d.x} ${(startY + endY) / 2},
               ${d.x} ${endY}`;
+}
+
+// Theme Toggle Logic
+const themeToggle = document.getElementById('theme-toggle');
+if (themeToggle) {
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    if (currentTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        themeToggle.textContent = '☀️ Light Mode';
+    }
+
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        if (document.body.classList.contains('dark-mode')) {
+            localStorage.setItem('theme', 'dark');
+            themeToggle.textContent = '☀️ Light Mode';
+        } else {
+            localStorage.setItem('theme', 'light');
+            themeToggle.textContent = '🌙 Dark Mode';
+        }
+    });
 }
