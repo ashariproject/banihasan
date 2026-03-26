@@ -55,7 +55,8 @@ d3.csv(DATA_URL).then((csvData) => {
             row.spouse = {
                 fullName: row.spouseFullName,
                 nickname: row.spouseNickname,
-                location: row.spouseLocation
+                location: row.spouseLocation,
+                photoUrl: row.spousePhotoUrl
             };
         }
     });
@@ -245,10 +246,11 @@ function update(source) {
         
         // Main Card
         const initChar = data.fullName.charAt(0).toUpperCase();
+        const avatarContent = data.photoUrl ? `<img src="${data.photoUrl}" class="avatar-img" alt="${data.fullName}">` : initChar;
         htmlContent += `
             <div class="profile-card ${genClass}">
                 <div class="avatar-container">
-                    <div class="avatar">${initChar}</div>
+                    <div class="avatar">${avatarContent}</div>
                 </div>
                 <div class="info-container">
                     <div class="name" title="${data.fullName}">${data.fullName}</div>
@@ -270,12 +272,13 @@ function update(source) {
         if (data.spouse && d.showSpouse) {
             const sp = data.spouse;
             const spInit = sp.fullName.charAt(0).toUpperCase();
+            const spAvatarContent = sp.photoUrl ? `<img src="${sp.photoUrl}" class="avatar-img" alt="${sp.fullName}">` : spInit;
             htmlContent += `<div class="connector-icon spouse-toggle btn-hide" title="Sembunyikan Pasangan">💍-</div>`;
 
             htmlContent += `
                 <div class="profile-card ${genClass} spouse-card">
                     <div class="avatar-container">
-                        <div class="avatar">${spInit}</div>
+                        <div class="avatar">${spAvatarContent}</div>
                     </div>
                     <div class="info-container">
                         <div class="name" title="${sp.fullName}">${sp.fullName}</div>

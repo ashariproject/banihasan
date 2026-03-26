@@ -257,6 +257,13 @@ select.btn-control {
     color: var(--text-muted);
 }
 
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
 .info-container {
     display: flex;
     flex-direction: column;
