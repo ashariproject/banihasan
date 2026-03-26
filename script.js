@@ -273,6 +273,9 @@ function update(source) {
             const sp = data.spouse;
             const spInit = sp.fullName.charAt(0).toUpperCase();
             const spAvatarContent = sp.photoUrl ? `<img src="${sp.photoUrl}" class="avatar-img" alt="${sp.fullName}">` : spInit;
+            const isGen1 = !data.generation || String(data.generation) === "1";
+            const menantuBadge = isGen1 ? "" : `<span class="status-badge">(Menantu)</span>`;
+            
             htmlContent += `<div class="connector-icon spouse-toggle btn-hide" title="Sembunyikan Pasangan">💍-</div>`;
 
             htmlContent += `
@@ -282,7 +285,7 @@ function update(source) {
                     </div>
                     <div class="info-container">
                         <div class="name" title="${sp.fullName}">${sp.fullName}</div>
-                        <div class="nickname">${sp.nickname} <span class="status-badge">(Menantu)</span></div>
+                        <div class="nickname">${sp.nickname} ${menantuBadge}</div>
                         <div class="location">
                             <span class="location-icon">📍</span> ${sp.location}
                         </div>
