@@ -215,10 +215,15 @@
                         const parentName = d.parent ? d.parent.data.fullName : "-";
                         const spouseName = d.data.spouse ? d.data.spouse.fullName : `<span class="empty-spouse">-</span>`;
                         
+                        const indentPx = Math.max(0, (d.depth - 1) * 16);
+                        const symbol = d.depth > 1 ? "↳ " : "";
+                        
                         tr.innerHTML = `
                             <td style="text-align: center;">${counter++}</td>
                             <td style="text-align: center;">${(d.data.generation || "-")}</td>
-                            <td style="font-weight: 500;">${d.data.fullName || "-"}</td>
+                            <td style="font-weight: 500; padding-left: ${indentPx + 8}px;">
+                                <span style="color: #94a3b8; font-weight: normal;">${symbol}</span>${d.data.fullName || "-"}
+                            </td>
                             <td>${d.data.nickname || "-"}</td>
                             <td>${spouseName}</td>
                             <td style="color: #475569; font-size: 11px;">${parentName}</td>
