@@ -74,9 +74,21 @@
             font-weight: 600; 
             color: #334155;
         }
-        tr:nth-child(even) {
-            background-color: #f8fafc;
+        tr[class^="gen-bg-"] {
+            -webkit-print-color-adjust: exact; 
+            print-color-adjust: exact; 
         }
+
+        .gen-bg-1 { background-color: #fffbeb !important; }
+        .gen-bg-2 { background-color: #eff6ff !important; }
+        .gen-bg-3 { background-color: #ecfdf5 !important; }
+        .gen-bg-4 { background-color: #f5f3ff !important; }
+        .gen-bg-5 { background-color: #fdf2f8 !important; }
+        .gen-bg-6 { background-color: #ccfbf1 !important; }
+        .gen-bg-7 { background-color: #ffedd5 !important; }
+        .gen-bg-8 { background-color: #e0e7ff !important; }
+        .gen-bg-9 { background-color: #ffe4e6 !important; }
+        .gen-bg-10 { background-color: #ecfccb !important; }
         
         .empty-spouse {
             color: #94a3b8;
@@ -107,11 +119,6 @@
             }
             th { 
                 background-color: #f1f5f9 !important; 
-                -webkit-print-color-adjust: exact; 
-                print-color-adjust: exact; 
-            }
-            tr:nth-child(even) {
-                background-color: #f8fafc !important;
                 -webkit-print-color-adjust: exact; 
                 print-color-adjust: exact; 
             }
@@ -191,6 +198,9 @@
                     // Pre-order traversal to list gen2 and descendants
                     gen2Node.eachBefore(d => {
                         const tr = document.createElement("tr");
+                        const genNum = d.data.generation || 1;
+                        tr.className = `gen-bg-${genNum}`;
+                        
                         const parentName = d.parent ? d.parent.data.fullName : "-";
                         const spouseName = d.data.spouse ? d.data.spouse.fullName : `<span class="empty-spouse">-</span>`;
                         
