@@ -193,11 +193,10 @@
                             <tr>
                                 <th style="width: 5%; text-align: center;">No</th>
                                 <th style="width: 8%; text-align: center;">Gen</th>
-                                <th style="width: 25%">Nama Lengkap</th>
+                                <th style="width: 30%">Nama Lengkap</th>
                                 <th style="width: 15%">Panggilan</th>
-                                <th style="width: 22%">Pasangan</th>
-                                <th style="width: 15%">Binti / Bin</th>
-                                <th style="width: 10%">Lokasi</th>
+                                <th style="width: 25%">Pasangan</th>
+                                <th style="width: 17%">Binti / Bin</th>
                             </tr>
                         </thead>
                         <tbody></tbody>
@@ -223,7 +222,6 @@
                             <td>${d.data.nickname || "-"}</td>
                             <td>${spouseName}</td>
                             <td style="color: #475569; font-size: 11px;">${parentName}</td>
-                            <td style="color: #475569;">${d.data.location || "-"}</td>
                         `;
                         tbody.appendChild(tr);
                     });
