@@ -165,14 +165,26 @@
             const container = document.getElementById("print-container");
             container.innerHTML = "";
 
+            const klanMap = {
+                "2": "Nyamplungan",
+                "3": "Jepara",
+                "4": "Krembangan",
+                "5": "Karang Tembok",
+                "6": "Ngesong",
+                "7": "Bulak Banteng",
+                "8": "Kampung Baru"
+            };
+
             // root.children are Generation 2
             if (root.children && root.children.length > 0) {
                 root.children.forEach(gen2Node => {
                     const pageDiv = document.createElement("div");
                     pageDiv.className = "page";
                     
+                    const klanName = klanMap[gen2Node.id] || "Lainnya";
+                    
                     const title = document.createElement("h2");
-                    title.textContent = "Keturunan " + gen2Node.data.fullName + " (Generasi 2)";
+                    title.innerHTML = `Keturunan ${gen2Node.data.fullName} (Generasi 2)<br><span style="font-size: 15px; color: #64748b; font-weight: 500; display: block; margin-top: 8px;">Klan Domisili: ${klanName}</span>`;
                     pageDiv.appendChild(title);
                     
                     const table = document.createElement("table");
